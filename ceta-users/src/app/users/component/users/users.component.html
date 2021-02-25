@@ -1,5 +1,7 @@
 <ng-container *ngIf="users$ | async as users">
   <ul>
-    <li *ngFor="let user of users">{{user.name}}</li>
+    <li *ngFor="let user of users">{{user.name}}
+      <a [routerLink]="user.id">Edit</a>
+    </li>
   </ul>
 </ng-container>

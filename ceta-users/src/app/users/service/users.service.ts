@@ -14,14 +14,29 @@ export class UsersService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getUsers(): void {
+  getUsersFromApi(): void {
     this.httpClient.get<User[]>('https://jsonplaceholder.typicode.com/users').pipe(
-      catchError(err => {
-        return throwError(err);
-      })
-    ).subscribe(users => {
-      this._users.next(users)
-    }
+        catchError(err => {
+          return throwError(err);
+        })
+      ).subscribe(users => {
+        this._users.next(users)
+      }
     )
+  }
+
+  getUser(userId: number): Observable<User> {
+    return this.users$.pipe(map(users => {
+      return users.find(user => user.id === userId)
+    }))
+  }
+
+  updateUser(user: User): void {
+    const userNoRef: User = user;
+    const users: User[] = this._users.getValue()
+    const userIndex: number = users.findIndex(user => user.id === userNoRef.id)
+    users[userIndex] = userNoRef
+
+    this._users.next(users);
   }
 }
