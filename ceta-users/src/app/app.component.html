@@ -1,5 +1,17 @@
-<h1>CETA Users</h1>
-<nav>
-  <a routerLink="/">Home</a>
+<nav class="navbar navbar-expand navbar-light bg-light">
+  <div class="container">
+    <ul class="navbar-nav me-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/add">Add</a>
+      </li>
+    </ul>
+  </div>
 </nav>
-<router-outlet></router-outlet>
+
+<div class="container mt-3">
+  <h1 class="mb-3">CETA Users</h1>
+  <router-outlet></router-outlet>
+</div>

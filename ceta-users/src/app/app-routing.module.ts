@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UserAddComponent } from './users/component/user-add/user-add.component';
 import { UserEditComponent } from './users/component/user-edit/user-edit.component';
 import { UsersComponent } from './users/component/users/users.component';
 
@@ -9,13 +10,17 @@ const routes: Routes = [
     component: UsersComponent,
   },
   {
-    path: ':userId',
+    path: 'users/:userId',
     component: UserEditComponent,
-  }
+  },
+  {
+    path: 'add',
+    component: UserAddComponent,
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

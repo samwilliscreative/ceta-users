@@ -1,5 +1,4 @@
-<h2>Edit user {{userId}}</h2>
 <ng-container *ngIf="user$ | async as user">
-  {{user | json}}
-  <app-user-form [user]="user"></app-user-form>
+  <h2>Editing: {{ user.name }}</h2>
+  <app-user-form [user]="user" (saveEvent)="updateUser($event)"></app-user-form>
 </ng-container>

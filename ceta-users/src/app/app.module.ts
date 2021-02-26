@@ -1,29 +1,30 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormControl, FormsModule, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { UsersComponent } from './users/component/users/users.component';
-import { HttpClientModule } from '@angular/common/http';
+import { UserAddComponent } from './users/component/user-add/user-add.component';
 import { UserEditComponent } from './users/component/user-edit/user-edit.component';
 import { UserFormComponent } from './users/component/user-form/user-form.component';
+import { UsersComponent } from './users/component/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
     UserEditComponent,
-    UserFormComponent
+    UserFormComponent,
+    UserAddComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
